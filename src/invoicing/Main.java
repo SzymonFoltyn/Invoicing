@@ -77,32 +77,32 @@ public class Main {
     public static void main(String[] args) {
 
 
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session session = sessionFactory.openSession();
-
-
-        Query query = session.createQuery("from User u");
-        Query query2 = session.createQuery("from Invoice u");
-        for (Object o : query2.list()) {
-            Invoice invoice = (Invoice) o;
-            System.out.println(invoice.toString());
-            for (Item item : invoice.getItems()) {
-                System.out.println(item.getName());
-
-            }
-        }
-        //można tak
-        Query query3 = session.createQuery("from Item i where i.invoice.id = :invoice");
-        query3.setParameter("invoice", 3);
-        for (Object o : query3.list()) {
-            Item item = (Item) o;
-            System.out.println(item.getName());
-
-        }
-
-
-        session.close();
-        sessionFactory.close();
+//        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+//        Session session = sessionFactory.openSession();
+//
+//
+//        Query query = session.createQuery("from User u");
+//        Query query2 = session.createQuery("from Invoice u");
+//        for (Object o : query2.list()) {
+//            Invoice invoice = (Invoice) o;
+//            System.out.println(invoice.toString());
+//            for (Item item : invoice.getItems()) {
+//                System.out.println(item.getName());
+//
+//            }
+//        }
+//        //można tak
+//        Query query3 = session.createQuery("from Item i where i.invoice.id = :invoice");
+//        query3.setParameter("invoice", 3);
+//        for (Object o : query3.list()) {
+//            Item item = (Item) o;
+//            System.out.println(item.getName());
+//
+//        }
+//
+//
+//        session.close();
+//        sessionFactory.close();
 
 
     }
